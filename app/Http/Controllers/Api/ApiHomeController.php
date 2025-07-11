@@ -92,7 +92,7 @@ class ApiHomeController extends Controller
                 'message' => 'Error creating antrian: ' . $e->getMessage()
             ], 500);
         }
-    }
+    } 
 
     public function getAntrian(Request $request)
     {

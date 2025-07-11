@@ -11,19 +11,20 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $cabang = Cabang::all();
-        $dokter = Dokter::all();
-        
-        return view('home', compact('cabang', 'dokter'));
+        $cabang = Cabang::all(); // Mengambil semua data cabang
+        $dokter = Dokter::all(); // Mengambil semua data dokter
+
+        return view('home', compact('cabang', 'dokter')); // Meneruskan data ke view
     }
 
+    // ... metode lainnya tetap sama
     public function store(Request $request)
     {
         $request->validate([
             'cabang_id' => 'required|exists:cabang,id',
-            'rencana_pembayaran' => 'required|in:Umum,BPJS,Asuransi',
+            'rencana_pembayaran' => 'required|in:Umum,BPJS,Asuransi', // Sesuaikan jika ingin hanya Umum, BPJS
             'tanggal' => 'required|date|after_or_equal:today',
-            'waktu' => 'required|in:Pagi,Siang,Sore',
+            'waktu' => 'required|in:Pagi,Siang,Sore', // Sesuaikan jika ingin hanya Pagi, Malam
             'dokter_id' => 'required|exists:dokter,id',
             'nama_pasien' => 'required|string|max:255',
             'nik' => 'required|string|size:16',
@@ -53,7 +54,7 @@ class HomeController extends Controller
 
     public function getJamPraktek()
     {
-        // Untuk contoh, mengembalikan jam praktek klinik
+        // Untuk contoh, mengembalikan jam praktek klinik umum
         return response()->json([
             'jam_praktek' => [
                 'senin_jumat' => '08:00 - 17:00',

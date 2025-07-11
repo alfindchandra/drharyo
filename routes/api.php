@@ -13,4 +13,4 @@ Route::prefix('v1')->group(function () {
     Route::get('/antrian', [ApiHomeController::class, 'getAntrian']);
     Route::put('/antrian/{id}/status', [ApiHomeController::class, 'updateStatusAntrian']);
     Route::delete('/antrian/{id}', [ApiHomeController::class, 'deleteAntrian']);
-});
+}); 
