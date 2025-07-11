@@ -11,26 +11,24 @@ class DokterSeeder extends Seeder
     {
         Dokter::create([
             'nama_dokter' => 'dr. Haryo Bagus Trenggono, Sp.M',
-            'spesialisasi' => 'Spesialis Mata',
-            'telepon' => '081234567890'
+            'id_cabang' => '1',
         ]);
 
         Dokter::create([
             'nama_dokter' => 'dr. R. Hasya Arianda, Sp.M',
-            'spesialisasi' => 'Spesialis Mata',
-            'telepon' => '081234567891'
+            'id_cabang' => '1',
+ 
         ]);
 
         Dokter::create([
             'nama_dokter' => 'Dr. Harijo Wahjudi BS., dr., Sp.M(K).',
-            'spesialisasi' => 'Spesialis Penyakit Dalam',
-            'telepon' => '081234567892'
+            'id_cabang' => '2',
+
         ]);
 
         Dokter::create([
             'nama_dokter' => 'dr. Sekar Ayu Sitoresmi, Sp.M., M.Ked.Klin',
-            'spesialisasi' => 'Spesialis Kandungan',
-            'telepon' => '081234567893'
+            'id_cabang' => '2',
         ]);
     }
 }

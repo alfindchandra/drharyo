@@ -14,8 +14,7 @@ return new class extends Migration
         Schema::create('dokter', function (Blueprint $table) {
             $table->id();
             $table->string('nama_dokter');
-            $table->string('spesialisasi')->nullable();
-            $table->string('telepon')->nullable();
+            $table->string('id_cabang')->nullable();
             $table->timestamps();
         });
     }

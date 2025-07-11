@@ -12,8 +12,8 @@ class Dokter extends Model
     protected $table = 'dokter';
     protected $fillable = [
         'nama_dokter',
-        'spesialisasi',
-        'telepon'
+        'id_cabang',
+
     ];
 
     public function antrian()
