@@ -12,9 +12,9 @@ class Antrian extends Model
     protected $table = 'antrian';
     protected $fillable = [
         'cabang_id',
-        'rencana_pembayaran',
+        'pembayaran_id',
         'tanggal',
-        'waktu',
+        'jadwal_dokter_id',
         'dokter_id',
         'nama_pasien',
         'nik',
@@ -35,6 +35,11 @@ class Antrian extends Model
     public function dokter()
     {
         return $this->belongsTo(Dokter::class);
+    }
+
+    public function pembayaran()
+    {
+        return $this->belongsTo(Pembayaran::class);
     }
 
     public static function getNextNomorAntrian($cabang_id, $tanggal, $dokter_id)

@@ -1,11 +1,10 @@
-
 <div id="antrianModal" class="modal">
     <div class="modal-content">
         <div class="flex justify-between items-center border-b pb-3 mb-4">
             <h2 class="text-xl font-semibold text-gray-800">Form Antrean</h2>
             <button onclick="closeAntrianModal()" class="text-gray-500 hover:text-gray-700 text-2xl font-bold">&times;</button>
         </div>
-        <form id="antrianForm" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <form id="antrianForm" action="{{ route('antrian.store') }}" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-4">
             @csrf
             <div>
                 <label for="cabang_id" class="block text-sm font-medium text-gray-700">Cabang</label>
@@ -28,15 +27,14 @@
             </div>
             <div>
                 <label for="tanggal" class="block text-sm font-medium text-gray-700">Tanggal</label>
-                <input type="date" id="tanggal" name="tanggal" required class="block w-full px-3 py-2 border rounded-md">
+                <input type="date" id="tanggal" name="tanggal" required class="block w-full px-3 py-2 border rounded-md" min="{{ date('Y-m-d') }}" max="{{ date('Y-m-d', strtotime('+2 days')) }}">
                 <p class="text-red-500 text-xs mt-1 hidden" id="error-tanggal"></p>
             </div>
             <div>
                 <label for="waktu" class="block text-sm font-medium text-gray-700">Waktu</label>
                 <select id="waktu" name="waktu" required class="block w-full px-3 py-2 border rounded-md">
                     <option value="">Pilih Waktu</option>
-                    <option value="Pagi">Pagi</option>
-                    <option value="Malam">Malam</option>
+                    
                 </select>
                 <p class="text-red-500 text-xs mt-1 hidden" id="error-waktu"></p>
             </div>
@@ -54,12 +52,12 @@
             </div>
             <div>
                 <label for="nik" class="block text-sm font-medium text-gray-700">NIK</label>
-                <input type="text" id="nik" name="nik" maxlength="16" required class="block w-full px-3 py-2 border rounded-md">
+                <input type="number" id="nik" name="nik" maxlength="16" required class="block w-full px-3 py-2 border rounded-md">
                 <p class="text-red-500 text-xs mt-1 hidden" id="error-nik"></p>
             </div>
             <div class="md:col-span-2">
                 <label for="no_wa" class="block text-sm font-medium text-gray-700">No. WA</label>
-                <input type="text" id="no_wa" name="no_wa" class="block w-full px-3 py-2 border rounded-md">
+                <input type="number" id="no_wa" name="no_wa" class="block w-full px-3 py-2 border rounded-md">
                 <p class="text-xs text-gray-500 mt-1">* Format: 08xxxxxxxxxx</p>
                 <p class="text-red-500 text-xs mt-1 hidden" id="error-no_wa"></p>
             </div>

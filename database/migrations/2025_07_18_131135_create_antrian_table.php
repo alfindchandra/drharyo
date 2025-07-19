@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('antrian', function (Blueprint $table) {
             $table->id();
             $table->foreignId('cabang_id')->constrained('cabang');
-            $table->enum('rencana_pembayaran', ['Umum', 'BPJS']);
+            $table->foreignId('pembayaran_id')->constrained('pembayaran');
             $table->date('tanggal');
-            $table->enum('waktu', ['Pagi', 'Malam',]);
+            $table->enum('waktu', ['Pagi', 'Malam']);
             $table->foreignId('dokter_id')->constrained('dokter');
             $table->string('nama_pasien');
             $table->string('nik', 16);
@@ -27,8 +27,10 @@ return new class extends Migration
         });
     }
 
-    public function down()
+    public function down(): void
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('antrian');
+        Schema::enableForeignKeyConstraints();
     }
 };

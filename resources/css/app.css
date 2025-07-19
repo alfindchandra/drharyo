@@ -14,3 +14,8 @@
     border-color: #ef4444; /* Tailwind red-500 */
     box-shadow: 0 0 0 1px #ef4444;
 }
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; /* Penting untuk menghilangkan margin default yang kadang ada */
+}
